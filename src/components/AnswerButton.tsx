@@ -13,7 +13,7 @@ function AnswerButton({ text, isSelected, isCorrect, onClick }: AnswerButtonProp
   }
 
   return (
-    <button type="button" className={className} onClick={onClick}>
+    <button type="button" className={`answer-button ${className}`} onClick={onClick}>
       {text}
     </button>
   );
