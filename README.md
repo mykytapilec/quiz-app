@@ -178,8 +178,4 @@ Possible future enhancements:
 
 ## License
 
-<<<<<<< HEAD
-This project is created for educational purposes.
-=======
 This project is open source and available under the MIT License.
->>>>>>> origin/dev
