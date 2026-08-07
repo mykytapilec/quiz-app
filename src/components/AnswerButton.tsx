@@ -1,19 +1,30 @@
+import type { MouseEventHandler } from 'react';
+
 interface AnswerButtonProps {
   text: string;
   isSelected: boolean;
-  isCorrect?: boolean;
-  onClick: () => void;
+  isCorrect: boolean;
+  isIncorrect: boolean;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-function AnswerButton({ text, isSelected, isCorrect, onClick }: AnswerButtonProps) {
-  let className = '';
+function AnswerButton({ text, isSelected, isCorrect, isIncorrect, onClick }: AnswerButtonProps) {
+  let className = 'answer-button';
 
-  if (isSelected) {
-    className = isCorrect ? 'correct' : 'incorrect';
+  if (isCorrect) {
+    className += ' correct';
+  }
+
+  if (isIncorrect) {
+    className += ' incorrect';
+  }
+
+  if (isSelected && !isCorrect) {
+    className += ' selected';
   }
 
   return (
-    <button type="button" className={`answer-button ${className}`} onClick={onClick}>
+    <button className={className} type="button" onClick={onClick}>
       {text}
     </button>
   );
