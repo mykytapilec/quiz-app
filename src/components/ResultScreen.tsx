@@ -1,21 +1,24 @@
 interface ResultScreenProps {
-  score: number;
   totalQuestions: number;
+  correctAnswers: number;
+  mistakes: number;
   onRestart: () => void;
 }
 
-function ResultScreen({ score, totalQuestions, onRestart }: ResultScreenProps) {
-  const percentage = Math.round((score / totalQuestions) * 100);
+function ResultScreen({ totalQuestions, correctAnswers, mistakes, onRestart }: ResultScreenProps) {
+  const accuracy = Math.round((correctAnswers / totalQuestions) * 100);
 
   return (
     <section className="result-container">
-      <h1>Quiz Completed</h1>
+      <h1>Quiz completed!</h1>
 
       <p>
-        Your score: {score} / {totalQuestions}
+        Score: {correctAnswers} / {totalQuestions}
       </p>
 
-      <p>{percentage}% correct answers</p>
+      <p>Mistakes: {mistakes}</p>
+
+      <p>Accuracy: {accuracy}%</p>
 
       <button className="restart-button" type="button" onClick={onRestart}>
         Restart Quiz

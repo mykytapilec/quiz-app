@@ -6,39 +6,47 @@ function App() {
   const {
     currentQuestion,
     currentQuestionIndex,
-    selectedAnswer,
-    score,
+    questions,
+    selectedAnswers,
+    wrongAnswers,
+    correctAnswers,
+    mistakes,
+    canProceed,
+    isFinished,
     selectAnswer,
     nextQuestion,
     restartQuiz,
-    isFinished,
-    totalQuestions,
   } = useQuiz();
 
   if (isFinished) {
     return (
-      <main>
-        <ResultScreen score={score} totalQuestions={totalQuestions} onRestart={restartQuiz} />
-      </main>
+      <ResultScreen
+        totalQuestions={questions.length}
+        correctAnswers={correctAnswers}
+        mistakes={mistakes}
+        onRestart={restartQuiz}
+      />
     );
   }
 
   return (
-    <main>
-      <section className="quiz-container">
+    <main className="app">
+      <div className="quiz-header">
         <h1>Quiz App</h1>
 
-        <p className="progress">
-          Question {currentQuestionIndex + 1} of {totalQuestions}
+        <p>
+          Question {currentQuestionIndex + 1} / {questions.length}
         </p>
+      </div>
 
-        <QuizQuestion
-          question={currentQuestion}
-          selectedAnswer={selectedAnswer}
-          onAnswerSelect={selectAnswer}
-          onNextQuestion={nextQuestion}
-        />
-      </section>
+      <QuizQuestion
+        question={currentQuestion}
+        selectedAnswers={selectedAnswers}
+        wrongAnswers={wrongAnswers}
+        canProceed={canProceed}
+        onAnswerSelect={selectAnswer}
+        onNextQuestion={nextQuestion}
+      />
     </main>
   );
 }
