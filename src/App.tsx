@@ -5,6 +5,8 @@ function App() {
   const {
     currentQuestion,
     currentQuestionIndex,
+    selectedAnswer,
+    score,
     selectAnswer,
     nextQuestion,
     isFinished,
@@ -15,6 +17,10 @@ function App() {
     return (
       <main>
         <h1>Quiz Completed</h1>
+
+        <p>
+          Score: {score} / {totalQuestions}
+        </p>
       </main>
     );
   }
@@ -29,6 +35,7 @@ function App() {
 
       <QuizQuestion
         question={currentQuestion}
+        selectedAnswer={selectedAnswer}
         onAnswerSelect={selectAnswer}
         onNextQuestion={nextQuestion}
       />

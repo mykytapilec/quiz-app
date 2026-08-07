@@ -9,3 +9,9 @@ export interface QuizQuestion {
   options: AnswerOption[];
   correctAnswerId: string;
 }
+
+export interface AnswerResult {
+  questionId: number;
+  answerId: string;
+  isCorrect: boolean;
+}
