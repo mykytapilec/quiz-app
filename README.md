@@ -1,49 +1,71 @@
 # Quiz App
 
-A modern quiz application built with React and TypeScript.
+A modern interactive quiz application built with React, TypeScript, and Vite.
 
-This project was created as part of the roadmap.sh frontend projects:
+The application allows users to answer single-choice and multiple-choice questions with instant feedback, answer validation, progress tracking, and randomized question order.
+
+## Project Requirements
+
+This project was created based on the roadmap.sh challenge:
 
 https://roadmap.sh/projects/quiz-app
 
-Users can answer multiple-choice questions, receive instant feedback, track their score, and restart the quiz after completion.
-
 ## Features
 
-- Multiple-choice quiz questions
-- Question navigation
-- Answer validation
-- Correct answer tracking
-- Score calculation
-- Results screen
-- Quiz restart functionality
-- Responsive user interface
+* Single-choice questions
+* Multiple-choice questions
+* Randomized question order on every start and restart
+* Instant answer validation
+* Correct answer highlighting
+* Temporary incorrect answer highlighting
+* Progress indicator
+* Quiz completion screen
+* Restart functionality
+* Responsive user interface
+
+## Quiz Logic
+
+### Single Choice Questions
+
+* The user selects one answer.
+* Correct answers are highlighted in green.
+* Incorrect answers are highlighted in red temporarily.
+* The user can continue only after selecting the correct answer.
+* The next question button appears after a correct answer.
+
+### Multiple Choice Questions
+
+* The user can select multiple answers.
+* Correct selected answers remain highlighted in green.
+* Incorrect selections are highlighted in red temporarily.
+* The user must find all correct answers before continuing.
+* The next question button appears after all correct options are selected.
 
 ## Tech Stack
 
-- React
-- TypeScript
-- Vite
-- CSS
-- ESLint
-- Prettier
+* React
+* TypeScript
+* Vite
+* CSS
+* ESLint
+* Prettier
 
 ## Project Structure
 
-```text
-src
-├── components
+```
+src/
+├── components/
 │   ├── AnswerButton.tsx
 │   ├── QuizQuestion.tsx
 │   └── ResultScreen.tsx
 │
-├── data
+├── data/
 │   └── questions.ts
 │
-├── hooks
+├── hooks/
 │   └── useQuiz.ts
 │
-├── types
+├── types/
 │   └── quiz.ts
 │
 ├── App.tsx
@@ -51,30 +73,58 @@ src
 └── main.tsx
 ```
 
-## Getting Started
+## Installation
 
-### Clone the repository
+Clone the repository:
 
 ```bash
-git clone https://github.com/mykytapilec/quiz-app.git
+git clone <repository-url>
 ```
 
-### Navigate to the project directory
+Navigate to the project folder:
 
 ```bash
 cd quiz-app
 ```
 
-### Install dependencies
+Install dependencies:
 
 ```bash
 npm install
 ```
 
+## Development
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at:
+
+```
+http://localhost:5173
+```
+
+## Available Scripts
+
 ### Start development server
 
 ```bash
 npm run dev
+```
+
+### Format code
+
+```bash
+npm run format
+```
+
+### Run linting
+
+```bash
+npm run lint
 ```
 
 ### Build production version
@@ -83,37 +133,49 @@ npm run dev
 npm run build
 ```
 
-### Run project checks
+### Run full project validation
 
 ```bash
 npm run check
 ```
 
-The check command runs:
+The `check` command runs:
 
-- Prettier formatting
-- ESLint validation
-- TypeScript build
+* Prettier formatting
+* ESLint validation
+* TypeScript compilation
+* Production build
 
-## Application Flow
+## Git Workflow
 
-1. User starts the quiz
-2. User selects an answer
-3. Application validates the answer
-4. User continues through all questions
-5. Final score is displayed
-6. User can restart the quiz
+The project follows a feature branch workflow:
 
-## Purpose
+```
+main
+ └── dev
+      └── feature/*
+```
 
-This project demonstrates building a complete frontend application with React and TypeScript, including:
+Development process:
 
-- Component-based architecture
-- Custom React hooks
-- State management
-- Type-safe development
-- User interaction handling
+1. Create a feature branch from `dev`.
+2. Implement changes.
+3. Run project validation.
+4. Commit changes.
+5. Push the branch.
+6. Create a pull request into `dev`.
+
+## Future Improvements
+
+Possible future enhancements:
+
+* Add question categories
+* Add difficulty levels
+* Store quiz history
+* Add user statistics
+* Add animations and improved UI feedback
+* Add backend API integration
 
 ## License
 
-This project is open source and available under the MIT License.
+This project is created for educational purposes.
