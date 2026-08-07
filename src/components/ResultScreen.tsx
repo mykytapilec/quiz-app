@@ -8,7 +8,7 @@ function ResultScreen({ score, totalQuestions, onRestart }: ResultScreenProps) {
   const percentage = Math.round((score / totalQuestions) * 100);
 
   return (
-    <section>
+    <section className="result-container">
       <h1>Quiz Completed</h1>
 
       <p>
@@ -17,7 +17,7 @@ function ResultScreen({ score, totalQuestions, onRestart }: ResultScreenProps) {
 
       <p>{percentage}% correct answers</p>
 
-      <button type="button" onClick={onRestart}>
+      <button className="restart-button" type="button" onClick={onRestart}>
         Restart Quiz
       </button>
     </section>

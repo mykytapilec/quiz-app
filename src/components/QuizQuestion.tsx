@@ -15,8 +15,8 @@ function QuizQuestion({
   onNextQuestion,
 }: QuizQuestionProps) {
   return (
-    <section>
-      <h2>{question.question}</h2>
+    <section className="quiz-container">
+      <h2 className="question-title">{question.question}</h2>
 
       <div>
         {question.options.map((option) => (
@@ -30,7 +30,7 @@ function QuizQuestion({
         ))}
       </div>
 
-      <button type="button" onClick={onNextQuestion}>
+      <button className="next-button" type="button" onClick={onNextQuestion}>
         Next Question
       </button>
     </section>

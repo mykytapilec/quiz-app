@@ -1,4 +1,5 @@
 import QuizQuestion from './components/QuizQuestion';
+import ResultScreen from './components/ResultScreen';
 import useQuiz from './hooks/useQuiz';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     score,
     selectAnswer,
     nextQuestion,
+    restartQuiz,
     isFinished,
     totalQuestions,
   } = useQuiz();
@@ -16,29 +18,27 @@ function App() {
   if (isFinished) {
     return (
       <main>
-        <h1>Quiz Completed</h1>
-
-        <p>
-          Score: {score} / {totalQuestions}
-        </p>
+        <ResultScreen score={score} totalQuestions={totalQuestions} onRestart={restartQuiz} />
       </main>
     );
   }
 
   return (
     <main>
-      <h1>Quiz App</h1>
+      <section className="quiz-container">
+        <h1>Quiz App</h1>
 
-      <p>
-        Question {currentQuestionIndex + 1} of {totalQuestions}
-      </p>
+        <p className="progress">
+          Question {currentQuestionIndex + 1} of {totalQuestions}
+        </p>
 
-      <QuizQuestion
-        question={currentQuestion}
-        selectedAnswer={selectedAnswer}
-        onAnswerSelect={selectAnswer}
-        onNextQuestion={nextQuestion}
-      />
+        <QuizQuestion
+          question={currentQuestion}
+          selectedAnswer={selectedAnswer}
+          onAnswerSelect={selectAnswer}
+          onNextQuestion={nextQuestion}
+        />
+      </section>
     </main>
   );
 }

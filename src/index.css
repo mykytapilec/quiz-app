@@ -1,7 +1,15 @@
 :root {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  color: #1f2937;
+  background: #f3f4f6;
 }
 
 * {
@@ -11,4 +19,85 @@
 body {
   margin: 0;
   min-width: 320px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+main {
+  width: min(100% - 32px, 700px);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.quiz-container,
+.result-container {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 25px rgb(0 0 0 / 0.08);
+}
+
+.quiz-container h1 {
+  margin-top: 0;
+}
+
+.question-title {
+  margin-bottom: 24px;
+}
+
+.answers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answer-button {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #d1d5db;
+  border-radius: 10px;
+  background: white;
+  text-align: left;
+  transition: 0.2s ease;
+}
+
+.answer-button:hover {
+  border-color: #6366f1;
+}
+
+.answer-button.correct {
+  border-color: #16a34a;
+  background: #dcfce7;
+}
+
+.answer-button.incorrect {
+  border-color: #dc2626;
+  background: #fee2e2;
+}
+
+.next-button,
+.restart-button {
+  margin-top: 24px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: white;
+}
+
+.next-button:hover,
+.restart-button:hover {
+  background: #4338ca;
+}
+
+.progress {
+  margin-bottom: 24px;
+  color: #6b7280;
 }
