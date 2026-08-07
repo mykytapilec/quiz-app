@@ -31,6 +31,12 @@ function useQuiz() {
     setCurrentQuestionIndex((previousIndex) => previousIndex + 1);
   };
 
+  const restartQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setSelectedAnswers({});
+    setScore(0);
+  };
+
   const isFinished = currentQuestionIndex >= questions.length;
 
   return {
@@ -40,6 +46,7 @@ function useQuiz() {
     score,
     selectAnswer,
     nextQuestion,
+    restartQuiz,
     isFinished,
     totalQuestions: questions.length,
   };
