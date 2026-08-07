@@ -1,73 +1,119 @@
-# React + TypeScript + Vite
+# Quiz App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern quiz application built with React and TypeScript.
 
-Currently, two official plugins are available:
+This project was created as part of the roadmap.sh frontend projects:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://roadmap.sh/projects/quiz-app
 
-## React Compiler
+Users can answer multiple-choice questions, receive instant feedback, track their score, and restart the quiz after completion.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Multiple-choice quiz questions
+- Question navigation
+- Answer validation
+- Correct answer tracking
+- Score calculation
+- Results screen
+- Quiz restart functionality
+- Responsive user interface
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- Vite
+- CSS
+- ESLint
+- Prettier
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```text
+src
+├── components
+│   ├── AnswerButton.tsx
+│   ├── QuizQuestion.tsx
+│   └── ResultScreen.tsx
+│
+├── data
+│   └── questions.ts
+│
+├── hooks
+│   └── useQuiz.ts
+│
+├── types
+│   └── quiz.ts
+│
+├── App.tsx
+├── index.css
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+### Clone the repository
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+git clone https://github.com/mykytapilec/quiz-app.git
 ```
+
+### Navigate to the project directory
+
+```bash
+cd quiz-app
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start development server
+
+```bash
+npm run dev
+```
+
+### Build production version
+
+```bash
+npm run build
+```
+
+### Run project checks
+
+```bash
+npm run check
+```
+
+The check command runs:
+
+- Prettier formatting
+- ESLint validation
+- TypeScript build
+
+## Application Flow
+
+1. User starts the quiz
+2. User selects an answer
+3. Application validates the answer
+4. User continues through all questions
+5. Final score is displayed
+6. User can restart the quiz
+
+## Purpose
+
+This project demonstrates building a complete frontend application with React and TypeScript, including:
+
+- Component-based architecture
+- Custom React hooks
+- State management
+- Type-safe development
+- User interaction handling
+
+## License
+
+This project is open source and available under the MIT License.
