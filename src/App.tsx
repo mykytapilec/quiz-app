@@ -1,18 +1,37 @@
 import QuizQuestion from './components/QuizQuestion';
-import { questions } from './data/questions';
+import useQuiz from './hooks/useQuiz';
 
 function App() {
-  const currentQuestion = questions[0];
+  const {
+    currentQuestion,
+    currentQuestionIndex,
+    selectAnswer,
+    nextQuestion,
+    isFinished,
+    totalQuestions,
+  } = useQuiz();
 
-  function handleAnswerSelect(answerId: string) {
-    console.log('Selected answer:', answerId);
+  if (isFinished) {
+    return (
+      <main>
+        <h1>Quiz Completed</h1>
+      </main>
+    );
   }
 
   return (
     <main>
       <h1>Quiz App</h1>
 
-      <QuizQuestion question={currentQuestion} onAnswerSelect={handleAnswerSelect} />
+      <p>
+        Question {currentQuestionIndex + 1} of {totalQuestions}
+      </p>
+
+      <QuizQuestion
+        question={currentQuestion}
+        onAnswerSelect={selectAnswer}
+        onNextQuestion={nextQuestion}
+      />
     </main>
   );
 }
