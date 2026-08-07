@@ -4,9 +4,10 @@ import type { QuizQuestion as QuizQuestionType } from '../types/quiz';
 interface QuizQuestionProps {
   question: QuizQuestionType;
   onAnswerSelect: (answerId: string) => void;
+  onNextQuestion: () => void;
 }
 
-function QuizQuestion({ question, onAnswerSelect }: QuizQuestionProps) {
+function QuizQuestion({ question, onAnswerSelect, onNextQuestion }: QuizQuestionProps) {
   return (
     <section>
       <h2>{question.question}</h2>
@@ -20,6 +21,10 @@ function QuizQuestion({ question, onAnswerSelect }: QuizQuestionProps) {
           />
         ))}
       </div>
+
+      <button type="button" onClick={onNextQuestion}>
+        Next Question
+      </button>
     </section>
   );
 }
