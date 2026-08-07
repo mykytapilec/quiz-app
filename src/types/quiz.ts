@@ -1,4 +1,6 @@
-export interface AnswerOption {
+export type QuestionType = 'single' | 'multiple';
+
+export interface QuizOption {
   id: string;
   text: string;
 }
@@ -6,12 +8,7 @@ export interface AnswerOption {
 export interface QuizQuestion {
   id: number;
   question: string;
-  options: AnswerOption[];
-  correctAnswerId: string;
-}
-
-export interface AnswerResult {
-  questionId: number;
-  answerId: string;
-  isCorrect: boolean;
+  type: QuestionType;
+  options: QuizOption[];
+  correctAnswerIds: string[];
 }
